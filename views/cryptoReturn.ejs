@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cerulean/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LV/SIoc08vbV9CCeAwiz7RJZMI5YntsH8rGov0Y2nysmepqMWVvJqds6y0RaxIXT"
+      crossorigin="anonymous"
+    />
+    <div style="text-align: center;">
+      <h1 class="display-3"><strong>Welcome to Return Haus</strong></h1>
+      <p class="lead">
+        Search for any security. Equity or otherwise 💸
+      </p>
+      <hr class="my-4" />
+      <p class="lead">
+        <a href="localhost:3000">Try Another Search</a>
+      </p>
+    </div>
+  </head>
+  <p class="lead">Quick Facts</p>
+  <p class="text-primary">
+    Crypto: <%= info[2] %>
+  </p>
+  <p class="text-primary">
+    Info: <%= info[0] %>
+  </p>
+  <p class="text-primary">
+    Last Refreshed: <%= info[5] %>
+  </p>
+  <p class="text-primary">
+    Market Name: <%= info[4] %>
+  </p>
+  <BR />
+  <span class="badge badge-primary"
+    >Current Rate: <%= quickData.curClose %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Average Close over past 100 days: <%= quickData.avgClose %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Average Volume over past 100 days: <%= quickData.avgVolume %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Average Market Cap over past 100 days: <%= quickData.avgMktCap %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Lowest Price over past 100 days: <%= quickData.lowest %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Highest Price over past 100 days: <%= quickData.highest %></span
+  >
+  <BR />
+
+  <body>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Open (USD)</th>
+          <th scope="col">High (USD)</th>
+          <th scope="col">Low (USD)</th>
+          <th scope="col">Close (USD)</th>
+          <th scope="col">Volume</th>
+          <th scope="col">Market Cap (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var i = 0; i < data.length; i++){ %>
+        <tr class="table-primary">
+          <th scope="row">
+            <%= data[i]["1b. open (USD)"] %>
+          </th>
+          <td><%= data[i]["2b. high (USD)"] %></td>
+          <td><%= data[i]["3b. low (USD)"] %></td>
+          <td><%= data[i]["4b. close (USD)"] %></td>
+          <td><%= data[i]["5. volume"] %></td>
+          <td><%= data[i]["6. market cap (USD)"] %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>

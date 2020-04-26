@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cerulean/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LV/SIoc08vbV9CCeAwiz7RJZMI5YntsH8rGov0Y2nysmepqMWVvJqds6y0RaxIXT"
+      crossorigin="anonymous"
+    />
+    <div style="text-align: center;">
+      <h1 class="display-3"><strong>Welcome to Return Haus</strong></h1>
+      <p class="lead">
+        Search for any security. Equity or otherwise 💸
+      </p>
+      <hr class="my-4" />
+      <p class="lead">
+        <a href="localhost:3000">Try Another Search</a>
+      </p>
+    </div>
+  </head>
+  <p class="lead">Quick Facts</p>
+  <p class="text-primary">
+    Stock Ticker: <%= info[1] %>
+  </p>
+  <p class="text-primary">
+    As Of: <%= info[2] %>
+  </p>
+  <p class="text-primary">
+    Region: <%= info[4] %>
+  </p>
+  <BR />
+  <span class="badge badge-primary"
+    >Average price over previous 100 days: <%= quickData.priceAvg %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Average float over previous 100 days: <%= quickData.floatAvg %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Current price difference from Average price: <%= quickData.priceDev
+    %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Current float difference from Average price: <%= quickData.floatDev
+    %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Highest float over previous 100 days: <%= quickData.highest %></span
+  >
+  <BR />
+  <span class="badge badge-primary"
+    >Highest float over previous 100 days: <%= quickData.lowest %></span
+  >
+
+  <body>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Adjusted Close</th>
+          <th scope="col">Volume</th>
+          <th scope="col">Dividend Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var i = 0; i < data.length; i++){ %>
+        <tr class="table-primary">
+          <th scope="row">
+            <%= data[i]["5. adjusted close"] %>
+          </th>
+          <td><%= data[i]["6. volume"] %></td>
+          <td><%= data[i]["7. dividend amount"] %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>
